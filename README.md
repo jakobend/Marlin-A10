@@ -17,6 +17,7 @@ Contributions of any kind are highly welcome. This especially includes testing a
 
 - `bugfix-1.1.x` tracks the [upstream branch](https://github.com/MarlinFirmware/Marlin/tree/bugfix-1.1.x) of the same name.
 - `a10` contains configurations specific to the A10.
+- `a10-bltouch` is preconfigured to work with the BLTouch or 3D Touch bed leveling sensors.
 - `a10-custom` contains customizations specific to my personal setup.
 
 ## Configuration sources
