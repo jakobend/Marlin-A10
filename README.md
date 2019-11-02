@@ -9,6 +9,20 @@ Work on Marlin 2.0 support is planned to start on its first production release. 
 
 This project is not affiliated with Geeetech in any way.
 
+## BLTouch Branch
+
+This branch of Marlin-A10 is preconfigured to work with a BLTouch or 3D Touch bed leveling sensor mounted on the bracket that comes with the A10 printer. It uses bilinear bed leveling with 9 probe points by default.
+
+The Z-axis endstop should be disconnected and the sensor connected to the header on the circuit board at the back of the hotend. If your sensor follows the common colour scheme, it needs to be plugged in following this order (viewed from the back of the hotend):
+
+| 1     | 2   | 3      | 4     | 5     |
+|-------|-----|--------|-------|-------|
+| Brown | Red | Orange | Black | White |
+
+The sensor must be mounted in such a way that the bottom of the probe extends below the nozzle when extended, and does not when retracted. The nozzle could run into the bed or the sensor catch on your prints if this is not given attention to.
+
+After flashing this firmware version, first move the Z axis up a bit and run `Control > BLTouch > BLTouch Self-Test` to make sure the sensor is deploying properly. It will continue extending and retracting until you reset it. Then you can run your first auto homing and hope for the best. To calibrate the sensor, run the bed leveling routine (with properly adjusted corners, and possibly a preheated bed to increase accuracy), disable soft endstops under `Prepare > Move axis` and then move the Z axis down until it catches the leveling shim of your choice. Copy the Z offset to `Prepare > Bed Leveling > Probe Z Offs` (keeping in mind the negative sign) and store your settings. Remember to reenable soft endstops.
+
 ## Contributing to Marlin-A10
 
 Contributions of any kind are highly welcome. This especially includes testing and tweaking the configuration. If you find that a value other than the default works better for you, please [search for an open issue](https://github.com/jakobend/Marlin-A10/issues) about it or open one if you don't find one.
